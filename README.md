@@ -1,6 +1,6 @@
 # SkriPy
 EXTREMELY basic skript integration with PySpigot
-
+keep in mind I've only learned pyspigot like...today
 # Usage
 
 Variables:
