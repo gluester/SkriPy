@@ -8,12 +8,17 @@ def getSkriptVar(variableName):
 def setSkriptVar(variableName, setTo):
     print("Set skript var " + variableName + " to " + setTo)
     return Variables.setVariable(variableName, setTo, None, False)
-
 def runFunc(funcName, *args):
-    if not args:
-        args = []
     func = Functions.getGlobalFunction(funcName)
-    ranVersion = func.execute(args)
+    if not args:
+        ranVersion = func.execute()
+    else:
+        skArgs = [[arg] for arg in args]
+        print(skArgs)
+        try:
+            ranVersion = func.execute(skArgs)
+        except:
+            print("SKRIPY ERROR: Failed to execute function " + funcName + "()")
     print("Ran Skript function: " + str(ranVersion))
     try:
         returns = list(ranVersion)
